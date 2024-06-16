@@ -1,13 +1,13 @@
 import { Component, OnInit } from "@angular/core";
-import { User } from "../../../core/models/user/user.model";
-import { UserService } from "@core/services/user-service.interface";
+import { User } from "@core/models/student/student.model";
+import { StudentService } from "@core/services/user-service.interface";
 import { MatDialog } from "@angular/material/dialog";
 import { FtxDialogComponent } from "../../shared/components/ftx-dialog/ftx-dialog.component";
 
 @Component({
-  selector: "app-user-list",
-  templateUrl: "./user-list.component.html",
-  styleUrl: "./user-list.component.css",
+  selector: "app-list-student-by-subject",
+  templateUrl: "./list-student-by-subject.component.html",
+  styleUrl: "./list-student-by-subject.component.css",
 })
 export class UserListComponent implements OnInit {
   filter: string = "";
@@ -19,7 +19,7 @@ export class UserListComponent implements OnInit {
   users: User[] = [];
 
   constructor(
-    private userService: UserService,
+    private userService: StudentService,
     private dialog: MatDialog
   ) {}
   ngOnInit(): void {

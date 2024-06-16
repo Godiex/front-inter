@@ -1,14 +1,14 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { UserService } from "@core/services/user-service.interface";
+import { StudentService } from "@core/services/user-service.interface";
 import { NotificationService } from "../../shared/services/notification.service";
-import { CreateUser } from "@core/models/user/create-user.model";
+import { CreateStudent } from "@core/models/student/create-student.model";
 import { SelectFormat } from "../../shared/components/ftx-select/models/selectFormat.model";
 
 @Component({
-  selector: "app-create-user",
+  selector: "app-create-student",
   templateUrl: "./create-user.component.html",
-  styleUrl: "./create-user.component.css",
+  styleUrl: "./create-student.component.css",
 })
 export class CreateUserComponent implements OnInit {
   public tipoNits: DocumentType[] = [];
@@ -32,7 +32,7 @@ export class CreateUserComponent implements OnInit {
   public isLoading = false;
   constructor(
     private formBuilder: FormBuilder,
-    private userService: UserService,
+    private userService: StudentService,
 
     private notificationService: NotificationService
   ) {}
@@ -40,7 +40,7 @@ export class CreateUserComponent implements OnInit {
   save(): void {
     if (this.userForm.valid) {
       this.isLoading = true;
-      const createUser: CreateUser = new CreateUser(
+      const createUser: CreateStudent = new CreateStudent(
         this.userForm.get("Name")?.value,
         this.userForm.get("Surname")?.value,
         this.userForm.get("Email")?.value,
@@ -50,7 +50,7 @@ export class CreateUserComponent implements OnInit {
         "3fa85f64-5717-4562-b3fc-2c963f66afa6"
       );
 
-      this.userService.createUser(createUser).subscribe({
+      this.userService.createStudent(createUser).subscribe({
         next: () => {
           this.notificationService.showSuccess("Usuario creado con exito");
           this.userForm.get("Name")?.patchValue(""),

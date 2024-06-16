@@ -1,49 +1,7 @@
-<div class="container-fluid p-0">
-  <mat-toolbar class="app-toolbar">
-    <div class="headerTool">
-      <div class="col-12 shadow p-2 mb-1 bg-white rounded">
-        <div class="row">
-          <div class="col-12" class="text-center">
-              <a [routerLink]="['/']">
-                <div class="col-12">
-                  <img
-                    src="../../assets/LogoFinotex.png"
-                    alt="icono"
-                    class="icon_logo"
-                  />
-                </div>
-              </a>
-          </div>
-          <div *ngIf="userLogged" class="col-3 d-flex align-items-center">
-            <span>{{studentName}}</span>
-            <div class="rounded-circle shadow border mx-auto">
-              <div class="rounded-circle-div">
-                <img
-                  src="../../assets/NIT4.svg"
-                  alt="icono"
-                  class="img-fluid d-block mx-auto my-auto"
-                />
-              </div>
-            </div>
-          </div>
-          <div *ngIf="userLogged" class="col-1 d-flex align-items-center">
-            <div class="rounded-circle shadow border mx-auto">
-              <button (click)="logout()" class="rounded-circle-div" style="border: none; background-color: transparent;">
-                <img
-                  src="../../assets/logout.svg"
-                  alt="icono"
-                  class="img-fluid d-block mx-auto my-auto"
-                />
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </mat-toolbar>
-</div>
+<app-header></app-header>
 <div class="row">
   <div class="col-12">
     <router-outlet> </router-outlet>
   </div>
+  <app-footer></app-footer>
 </div>

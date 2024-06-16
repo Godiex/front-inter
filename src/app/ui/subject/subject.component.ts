@@ -3,9 +3,9 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 import { MODULES } from "../routes.constants";
 
 @Component({
-  selector: "app-user",
-  templateUrl: "./user.component.html",
-  styleUrl: "./user.component.css",
+  selector: "app-student",
+  templateUrl: "./student.component.html",
+  styleUrl: "./student.component.css",
 })
 export class UserComponent implements OnInit {
   formControl!: FormGroup;

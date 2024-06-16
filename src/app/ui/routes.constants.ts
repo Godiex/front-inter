@@ -1,6 +1,6 @@
 export const USERS = {
   NAME: "users",
-  USER: "user/:identification/:subjectId",
+  USER: "student/:identification/:subjectId",
   CREATE: "create",
 };
 export const SUBJECTS = {

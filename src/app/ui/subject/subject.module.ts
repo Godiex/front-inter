@@ -8,7 +8,7 @@ import { CreateUserComponent } from "./add-subjects/create-user.component";
 import { UserRoutingModule } from "./subject-routing.module";
 import { UserComponent } from "./subject.component";
 import { UserListComponent } from "./subject-list/subject-list.component";
-import { UserService } from "@core/services/user-service.interface";
+import { StudentService } from "@core/services/user-service.interface";
 import { UserRepository } from "@infrastructure/repositories/user.repository";
 import { DocumentTypeService } from "@core/services/document-type-sevice.interface";
 
@@ -23,7 +23,7 @@ import { DocumentTypeService } from "@core/services/document-type-sevice.interfa
   ],
   providers: [
     HttpService,
-    { provide: UserService, useClass: UserRepository },
+    { provide: StudentService, useClass: UserRepository },
   ],
   exports: [],
 })

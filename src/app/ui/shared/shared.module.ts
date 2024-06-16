@@ -59,7 +59,6 @@ import { FtxDividerComponent } from "./components/ftx-divider/ftx-divider.compon
 import { FtxPaginatorComponent } from "./components/ftx-paginator/ftx-paginator.component";
 import { FtxInputPasswordComponent } from "./components/ftx-input-password/ftx-input-password.component";
 import { FtxItemComponent } from "./components/ftx-item/ftx-item.component";
-import { FtxAutocompleteComponent } from "./ftx-autocomplete/ftx-autocomplete.component";
 import { FtxLayoutPageLoginComponent } from "./components/ftx-layout-page-login/ftx-layout-page-login.component";
 @NgModule({
   declarations: [
@@ -77,7 +76,6 @@ import { FtxLayoutPageLoginComponent } from "./components/ftx-layout-page-login/
     FtxPaginatorComponent,
     FtxInputPasswordComponent,
     FtxItemComponent,
-    FtxAutocompleteComponent,
     FtxLayoutPageLoginComponent,
   ],
   imports: [
@@ -157,7 +155,6 @@ import { FtxLayoutPageLoginComponent } from "./components/ftx-layout-page-login/
     FtxPaginatorComponent,
     FtxInputPasswordComponent,
     FtxItemComponent,
-    FtxAutocompleteComponent,
     FtxLayoutPageLoginComponent,
   ],
 })
