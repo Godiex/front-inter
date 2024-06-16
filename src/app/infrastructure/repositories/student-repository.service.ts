@@ -1,16 +1,15 @@
 import { Injectable } from "@angular/core";
-import { Paginated } from "@core/models/paginated.interface";
 import { CreateStudent } from "@core/models/student/create-student.model";
-import { User } from "@core/models/student/student.model";
 import { StudentService } from "@core/services/user-service.interface";
 import { environment, resources } from "@env/environment";
 import { HttpService } from "@infrastructure/http/http.service";
-import { Observable, concatMap, map } from "rxjs";
+import { Observable } from "rxjs";
+import {GetAllStudent} from "@core/models/student/get-all-student.model";
 
 @Injectable({
   providedIn: "root",
 })
-export class UserRepository extends StudentService {
+export class StudentRepository extends StudentService {
   baseUrl = `${environment.apiUrl}${environment.apiSuffix}${resources.user}`;
   constructor(protected httpService: HttpService) {
     super();
@@ -23,7 +22,7 @@ export class UserRepository extends StudentService {
     identification: string,
     subjectId: string
   ): Observable<any> {
-    return this.httpService.doGet<User[]>(
+    return this.httpService.doGet<GetAllStudent[]>(
       `${this.baseUrl}/${identification}/${subjectId}`
     );
   }

@@ -7,13 +7,13 @@ import { HttpService } from "@infrastructure/http/http.service";
 import { CreateUserComponent } from "./add-subjects/create-user.component";
 import { UserRoutingModule } from "./subject-routing.module";
 import { UserComponent } from "./subject.component";
-import { UserListComponent } from "./subject-list/subject-list.component";
+import { SubjectListComponent } from "./subject-list/subject-list.component";
 import { StudentService } from "@core/services/user-service.interface";
-import { UserRepository } from "@infrastructure/repositories/user.repository";
-import { DocumentTypeService } from "@core/services/document-type-sevice.interface";
+import { StudentRepository } from "@infrastructure/repositories/student-repository.service";
+import {ListStudentBySubjectComponent} from "./list-student-by-subject/list-student-by-subject.component";
 
 @NgModule({
-  declarations: [UserComponent, CreateUserComponent, UserListComponent],
+  declarations: [UserComponent, CreateUserComponent, SubjectListComponent, ListStudentBySubjectComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -23,7 +23,7 @@ import { DocumentTypeService } from "@core/services/document-type-sevice.interfa
   ],
   providers: [
     HttpService,
-    { provide: StudentService, useClass: UserRepository },
+    { provide: StudentService, useClass: StudentRepository },
   ],
   exports: [],
 })

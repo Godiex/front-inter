@@ -1,15 +1,13 @@
 import { Routes } from "@angular/router";
-import { USERS } from "./routes.constants";
-import { AppComponent } from "./app.component";
-import { LoginComponent } from "./auth/login/login.component";
+import { IDENTITIES } from "./routes.constants";
 
 export const routes: Routes = [
   {
-    path: '',
-    component: LoginComponent
+    path: "",
+    loadChildren: () => import("./identity/identity.module").then((m) => m.IdentityModule),
   },
   {
-    path: USERS.NAME,
-    loadChildren: () => import("./user/user.module").then((m) => m.UserModule),
+    path: IDENTITIES.NAME,
+    loadChildren: () => import("./identity/identity.module").then((m) => m.IdentityModule),
   },
 ];

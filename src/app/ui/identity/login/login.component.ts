@@ -11,21 +11,13 @@ import {
 import { NotificationService } from "../../shared/services/notification.service";
 import { Router } from "@angular/router";
 import { LoginService } from "@core/services/login-service.interface";
-import { Identity } from "@core/models/login/auth.model";
+import { Auth } from "@core/models/login/auth.model";
 import { MODULES } from "../../routes.constants";
-import { IdentityResponse } from "@core/models/login/auth-response.model";
-import { SharedModule } from "../../shared/shared.module";
-import {IdentityService} from "@core/services/auth-service.interface";
+import {AuthResponse} from "@core/models/login/auth-response.model";
+import {AuthService} from "@core/services/auth-service.interface";
 
 @Component({
   selector: "app-login",
-  standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    SharedModule
-  ],
   templateUrl: "./login.component.html",
   styleUrl: "./login.component.css",
 })
@@ -39,10 +31,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     let stringIdentity: string | null = localStorage.getItem("auth");
     if (stringIdentity) {
-      let auth: IdentityResponse = JSON.parse(stringIdentity);
+      let auth: AuthResponse = JSON.parse(stringIdentity);
       this.studentName = auth.name;
       this.userLogged = true;
-      this.router.navigate([MODULES.USERS.USER]);
+      this.router.navigate([MODULES.IDENTITIES.ADD]);
     }
     this.createForm();
   }
@@ -51,7 +43,7 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private loginService: LoginService,
     private notification: NotificationService,
-    private authService: IdentityService,
+    private authService: AuthService,
     private router: Router)
   {}
 
@@ -65,20 +57,20 @@ export class LoginComponent implements OnInit {
 
   login() {
     let identification: string = this.loginForm.get('Identification')?.value;
-    let auth = new Identity(identification);
+    let auth = new Auth(identification);
     this.loginService.login(auth).subscribe(response => {
       this.studentName = response.name;
       this.loginForm.get('Identification')?.reset();
       localStorage.setItem("auth", JSON.stringify(response));
       this.authService.login()
-      this.router.navigate([MODULES.USERS.USER]);
+      this.router.navigate([MODULES.IDENTITIES.ADD]);
     }, (error) => {this.notification.showError('Falló al iniciar sesión');
     });
   }
 
   registerUser() {
     this.userRegister = true;
-    this.router.navigate([MODULES.USERS.CREATE]);
+    this.router.navigate([MODULES.IDENTITIES.ADD]);
   }
 
 }

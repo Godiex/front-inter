@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {MatToolbarModule} from "@angular/material/toolbar";
-import {NgClass, NgIf} from "@angular/common";
 import {AuthResponse} from "@core/models/login/auth-response.model";
-import {Router, RouterLink} from "@angular/router";
+import {Router} from "@angular/router";
 import {MODULES} from "../../routes.constants";
 import {AuthService} from "@core/services/auth-service.interface";
 
@@ -34,7 +32,7 @@ export class HeaderComponent implements OnInit{
     if (stringAuth) {
       let auth: AuthResponse = JSON.parse(stringAuth);
       this.studentName = auth.name;
-      this.router.navigate([MODULES.USERS.USER]);
+      this.router.navigate([MODULES.IDENTITIES.ADD]);
     }
   }
 

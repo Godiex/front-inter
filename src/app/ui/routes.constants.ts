@@ -1,7 +1,7 @@
-export const USERS = {
-  NAME: "users",
-  USER: "student/:identification/:subjectId",
-  CREATE: "create",
+export const IDENTITIES = {
+  NAME: "identity",
+  LOGIN: "login",
+  ADD: "create",
 };
 export const SUBJECTS = {
   NAME: "subjects",
@@ -9,8 +9,8 @@ export const SUBJECTS = {
   ADD: "add",
 };
 export const MODULES = {
-  USERS: {
-    USER: `/${USERS.NAME}/${USERS.USER}`,
-    CREATE: `/${USERS.NAME}/${USERS.CREATE}`,
+  IDENTITIES: {
+    USER: `/${IDENTITIES.NAME}/${IDENTITIES.LOGIN}`,
+    ADD: `/${IDENTITIES.NAME}/${IDENTITIES.ADD}`,
   },
 };

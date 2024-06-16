@@ -9,7 +9,7 @@ import { FtxDialogComponent } from "../../shared/components/ftx-dialog/ftx-dialo
   templateUrl: "./list-student-by-subject.component.html",
   styleUrl: "./list-student-by-subject.component.css",
 })
-export class UserListComponent implements OnInit {
+export class SubjectListComponent implements OnInit {
   filter: string = "";
   dataSearch: string = "";
   totalItems = 50;

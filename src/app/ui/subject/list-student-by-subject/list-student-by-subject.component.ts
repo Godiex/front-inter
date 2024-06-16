@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { Student } from "@core/models/student/student.model";
 import { StudentService } from "@core/services/student-service.interface";
 import { MatDialog } from "@angular/material/dialog";
-import { FtxDialogComponent } from "../../shared/components/ftx-dialog/ftx-dialog.component";
 import { ActivatedRoute } from "@angular/router";
 
 @Component({
@@ -10,7 +9,7 @@ import { ActivatedRoute } from "@angular/router";
   templateUrl: "./student-list.component.html",
   styleUrl: "./list-student-by-subject.component.css",
 })
-export class StudentListComponent implements OnInit {
+export class ListStudentBySubjectComponent implements OnInit {
   filter: string = "";
   dataSearch: string = "";
   totalItems = 50;
