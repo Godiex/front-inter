@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { NotificationService } from "../../shared/services/notification.service";
 import { CreateStudent } from "@core/models/student/create-student.model";
 import { Location } from "@angular/common";
-import {StudentService} from "@core/services/user-service.interface";
+import {StudentService} from "@core/services/student-service.interface";
 
 @Component({
   selector: "app-create-student",

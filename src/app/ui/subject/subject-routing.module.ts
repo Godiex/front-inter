@@ -1,16 +1,21 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { SUBJECTS } from "../routes.constants";
-import {SubjectListComponent} from "./subject-list/subject-list.component";
+import {SubjectComponent} from "./subject.component";
+import {AddSubjectsComponent} from "./add-subjects/add-subjects.component";
 
 const routes: Routes = [
   {
     path: "",
-    component: SubjectListComponent,
+    component: SubjectComponent,
   },
   {
     path: SUBJECTS.GET_SUBJECTS_BY_IDENTIFICATION,
-    component: SubjectListComponent,
+    component: SubjectComponent,
+  },
+  {
+    path: SUBJECTS.ADD,
+    component: AddSubjectsComponent,
   },
 ];
 

@@ -1,4 +1,5 @@
 import {BehaviorSubject, Observable} from "rxjs";
+import {AuthResponse} from "@core/models/login/auth-response.model";
 
 export abstract class AuthService {
   protected userLoggedSubject: BehaviorSubject<boolean>;
@@ -11,5 +12,6 @@ export abstract class AuthService {
   }
 
   abstract login(): void;
+  abstract getCurrentUser(): AuthResponse;
   abstract logout(): void;
 }

@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { CreateStudent } from "@core/models/student/create-student.model";
-import { StudentService } from "@core/services/user-service.interface";
+import { StudentService } from "@core/services/student-service.interface";
 import { environment, resources } from "@env/environment";
 import { HttpService } from "@infrastructure/http/http.service";
 import { Observable } from "rxjs";

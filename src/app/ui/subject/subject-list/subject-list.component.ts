@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { StudentService } from "@core/services/user-service.interface";
 import {GetSubjectByIdentificationDto} from "@core/models/subject/get-subject-by-identification";
+import {AuthService} from "@core/services/auth-service.interface";
+import {SubjectService} from "@core/services/subject-service.interface";
+import {NotificationService} from "../../shared/services/notification.service";
 
 @Component({
   selector: "app-subject-list",
@@ -10,13 +12,23 @@ import {GetSubjectByIdentificationDto} from "@core/models/subject/get-subject-by
 export class SubjectListComponent implements OnInit {
   subjects: GetSubjectByIdentificationDto[] = [];
   constructor(
-    private studentService: StudentService
+    private subjectService: SubjectService,
+    private authService: AuthService,
+    private notificationService: NotificationService,
   ) {}
   ngOnInit(): void {
-    this.fetchSubject();
+    this.fetchSubjects();
   }
-  public fetchSubject(): void {
-    this.subjects.push({name: "Quimica", id: "quim", professor: {name: "juan valdez"}})
+  public fetchSubjects(): void {
+    let studentInfo = this.authService.getCurrentUser();
+    this.subjectService.getByIdentification(studentInfo.identification).subscribe( {
+      next: subjects => {
+        this.subjects = subjects;
+      },
+      error: _ => {
+        this.notificationService.showError("Ha ocurrido un error al consultar las materias");
+      }
+    });
   }
 
   displayStudents(test: string) {
