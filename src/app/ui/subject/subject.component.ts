@@ -3,11 +3,11 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 import { MODULES } from "../routes.constants";
 
 @Component({
-  selector: "app-student",
-  templateUrl: "./student.component.html",
-  styleUrl: "./student.component.css",
+  selector: "app-subject",
+  templateUrl: "./subject.component.html",
+  styleUrl: "./subject.component.css",
 })
-export class UserComponent implements OnInit {
+export class SubjectComponent implements OnInit {
   formControl!: FormGroup;
   filter!: string;
   constructor(
@@ -23,5 +23,5 @@ export class UserComponent implements OnInit {
   }
   handleSearchEvent(filter: string) {
   }
-  protected readonly MODULES = MODULES;
+  public MODULES = MODULES;
 }

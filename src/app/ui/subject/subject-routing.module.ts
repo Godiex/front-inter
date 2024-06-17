@@ -1,17 +1,16 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { IDENTITY } from "../routes.constants";
-import { UserComponent } from "./subject.component";
-import { CreateUserComponent } from "./add-subjects/create-user.component";
+import { SUBJECTS } from "../routes.constants";
+import {SubjectListComponent} from "./subject-list/subject-list.component";
 
 const routes: Routes = [
   {
-    path: IDENTITY.USER,
-    component: UserComponent,
+    path: "",
+    component: SubjectListComponent,
   },
   {
-    path: IDENTITY.CREATE,
-    component: CreateUserComponent,
+    path: SUBJECTS.GET_SUBJECTS_BY_IDENTIFICATION,
+    component: SubjectListComponent,
   },
 ];
 
@@ -19,4 +18,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class UserRoutingModule {}
+export class SubjectRoutingModule {}

@@ -13,7 +13,7 @@ export class LoginRepository extends LoginService {
   override login(auth: Auth): Observable<AuthResponse> {
     return this.httpService.doPost<Auth, AuthResponse>(`${this.baseUrl}`, auth);
   }
-  baseUrl = `${environment.apiUrl}${environment.apiSuffix}${resources.login}`;
+  baseUrl = `${environment.apiUrl}${environment.apiSuffix}${resources.auth}`;
   constructor(protected httpService: HttpService) {
     super();
   }

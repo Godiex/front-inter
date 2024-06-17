@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit{
     if (stringAuth) {
       let auth: AuthResponse = JSON.parse(stringAuth);
       this.studentName = auth.name;
-      this.router.navigate([MODULES.IDENTITIES.ADD]);
+      this.router.navigate([MODULES.SUBJECTS.GET_SUBJECTS_BY_IDENTIFICATION]);
     }
   }
 

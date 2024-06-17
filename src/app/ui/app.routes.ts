@@ -1,5 +1,5 @@
 import { Routes } from "@angular/router";
-import { IDENTITIES } from "./routes.constants";
+import {IDENTITIES, SUBJECTS} from "./routes.constants";
 
 export const routes: Routes = [
   {
@@ -9,5 +9,9 @@ export const routes: Routes = [
   {
     path: IDENTITIES.NAME,
     loadChildren: () => import("./identity/identity.module").then((m) => m.IdentityModule),
+  },
+  {
+    path: SUBJECTS.NAME,
+    loadChildren: () => import("./subject/subject.module").then((m) => m.SubjectModule),
   },
 ];

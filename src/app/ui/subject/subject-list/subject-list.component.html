@@ -1,25 +1,20 @@
 @defer(on viewport){
 
-<div class="row">
-  @for (user of users; track user.name) {
+<div class="container row">
+  @for (subject of subjects; track subject.id) {
   <div class="col-sm-6 col-xl-4 col-12">
-    <ftx-item [Title]="user.name">
+    <ftx-item [Title]="'Materia: ' + subject.name">
       <ng-container content>
-        <p class="p-item"><strong>Rol: </strong> {{ getTypeUserSpanish(user.rol) }}</p>
-        <p class="p-item">
-          <strong>Identificación: </strong
-          > {{user.documentType.code}} {{ user.document}}
-        </p>
-        <p class="p-item"><strong>Email: </strong> {{ user.email }}</p>
+        <p class="p-item"><strong>Profesor: </strong> {{ subject.professor.name }}</p>
       </ng-container>
       <ng-container footer>
         <div class="d-flex">
           <ftx-button
-            [content]="'Eliminar'"
-            [buttonType]="'danger'"
-            [icon]="'delete_forever'"
-            (eventClick)="showModalDelete(user)"
-            [onlyIcon]="true"
+            [content]="'Ver Estudiantes'"
+            [buttonType]="'primary'"
+            [icon]="'people'"
+            (eventClick)="displayStudents('test')"
+            [onlyIcon]="false"
           />
         </div>
       </ng-container>
@@ -27,17 +22,9 @@
   </div>
   }
 </div>
-
-<ftx-paginator
-  [length]="totalItems"
-  [pageSize]="itemsPerPage"
-  [pageIndex]="currentPage"
-  [pageSizeOptions]="[5, 10, 15]"
-  (page)="onPageChange($event)"
-></ftx-paginator>
 <div class="example-container"></div>
 } @placeholder {
 <p>No hay datos</p>
 }@loading(minimum 0.5s) {
-<app-ftx-spinner />
+  <app-ftx-spinner />
 }

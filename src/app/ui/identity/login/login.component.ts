@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
       this.loginForm.get('Identification')?.reset();
       localStorage.setItem("auth", JSON.stringify(response));
       this.authService.login()
-      this.router.navigate([MODULES.IDENTITIES.ADD]);
+      this.router.navigate([MODULES.SUBJECTS.GET_SUBJECTS_BY_IDENTIFICATION]);
     }, (error) => {this.notification.showError('Falló al iniciar sesión');
     });
   }

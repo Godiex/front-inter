@@ -10,7 +10,7 @@ import {GetAllStudent} from "@core/models/student/get-all-student.model";
   providedIn: "root",
 })
 export class StudentRepository extends StudentService {
-  baseUrl = `${environment.apiUrl}${environment.apiSuffix}${resources.user}`;
+  baseUrl = `${environment.apiUrl}${environment.apiSuffix}${resources.student}`;
   constructor(protected httpService: HttpService) {
     super();
   }
